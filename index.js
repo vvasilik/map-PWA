@@ -1,5 +1,17 @@
-var map = L.map('map').setView([50.062501, 19.939354], 15);
+var popup = L.popup(),
+  geocode,
+  map;
 
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidmFzaWxpeXdvcmtwbGFjZSIsImEiOiJjanEwMXJwOW0waTR4NDNvZHN3ZTY0dHEwIn0.6BsJwTlPJSHObAtL_ZPMSg', {
-	id: 'mapbox.streets'
-}).addTo(map);
+map = L.map('map', {
+  layers: MQ.mapLayer(),
+  center: [50.062501, 19.939354],
+  zoom: 14 })
+  .on('click', function(e) {
+    popup.setLatLng(e.latlng).openOn(this);
+
+  geocode.reverse(e.latlng);
+});
+
+geocode = MQ.geocode().on('success', function(e) {
+  popup.setContent(geocode.describeLocation(e.result.best));
+});
