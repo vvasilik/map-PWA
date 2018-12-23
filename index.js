@@ -1,17 +1,14 @@
-var popup = L.popup(),
-  geocode,
-  map;
+const map = new L.Map('map', {zoom: 9, center: new L.latLng([41.575730,13.002411]) });
 
-map = L.map('map', {
-  layers: MQ.mapLayer(),
-  center: [50.062501, 19.939354],
-  zoom: 14 })
-  .on('click', function(e) {
-    popup.setLatLng(e.latlng).openOn(this);
-
-  geocode.reverse(e.latlng);
-});
-
-geocode = MQ.geocode().on('success', function(e) {
-  popup.setContent(geocode.describeLocation(e.result.best));
-});
+map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));	//base layer
+map.addControl( new L.Control.Search({
+	url: 'http://nominatim.openstreetmap.org/search?format=json&q={s}',
+	jsonpParam: 'json_callback',
+	propertyName: 'display_name',
+	propertyLoc: ['lat','lon'],
+	marker: L.circleMarker([0,0],{radius:30}),
+	hideMarkerOnCollapse: true,
+	autoCollapse: true,
+	autoType: false,
+	minLength: 2
+}) );
