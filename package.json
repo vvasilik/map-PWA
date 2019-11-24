@@ -1,5 +1,5 @@
 {
-  "name": "currency-online",
+  "name": "map-PWA",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vvasilik/currency-online.git"
+    "url": "git+https://github.com/vvasilik/map-PWA.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/vvasilik/currency-online/issues"
+    "url": "https://github.com/vvasilik/map-PWA/issues"
   },
-  "homepage": "https://github.com/vvasilik/currency-online#readme",
+  "homepage": "https://github.com/vvasilik/map-PWA#readme",
   "devDependencies": {
     "simple-server": "^1.1.1"
   }

@@ -1,11 +1,11 @@
 {
-	"name": "Currency",
-	"short_name": "Currency",
+	"name": "Map",
+	"short_name": "Map",
 	"display": "standalone",
   "orientation": "portrait",
   "theme_color": "#ffffff",
 	"background_color": "#ffffff",
-	"description": "Currency",
+	"description": "Map",
 	"start_url": "/index.html",
 	"icons": [{
 		"src": "images/icons/icon-128x128.png",

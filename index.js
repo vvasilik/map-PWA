@@ -26,3 +26,19 @@ map.addControl( new L.Control.Search({
 geocode = MQ.geocode().on('success', function(e) {
 	popup.setContent(geocode.describeLocation(e.result.best));
 });
+
+function success(position) {
+    const latitude  = position.coords.latitude;
+    const longitude = position.coords.longitude;
+
+	console.log(latitude, longitude);
+	map.setView([latitude, longitude], 14);
+
+	const marker = L.marker([latitude, longitude]).addTo(map);
+  };
+
+  function error() {
+    alert("Unable to retrieve your location");
+  };
+
+  navigator.geolocation.getCurrentPosition(success, error);
