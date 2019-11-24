@@ -28,7 +28,7 @@ geocode = MQ.geocode().on('success', function(e) {
 });
 
 function success(position) {
-	console.log(JSON.stringify(position));
+	alert(JSON.stringify(position.coords.heading));
     const latitude  = position.coords.latitude;
     const longitude = position.coords.longitude;
 
