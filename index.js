@@ -45,7 +45,7 @@ function success(position) {
   navigator.geolocation.getCurrentPosition(success, error);
 
   setInterval(event => {
-	if (typeof Coordinates) {
-		alert(JSON.stringify(Coordinates.heading))
+	if (typeof navigator.geolocation.coordinates) {
+		alert(JSON.stringify(navigator.geolocation.coordinates))
 	}
   }, 3000);
