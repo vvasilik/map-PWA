@@ -7,8 +7,8 @@ const map = new L.Map('map', {
 });
 
 map.on('click', function(e) {
-	popup.setLatLng(e.latlng).openOn(this);
 	geocode.reverse(e.latlng);
+	popup.setLatLng(e.latlng).openOn(this);
 });
 map.addLayer(new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));
 map.addControl( new L.Control.Search({
@@ -43,3 +43,9 @@ function success(position) {
   };
 
   navigator.geolocation.getCurrentPosition(success, error);
+
+  setInterval(event => {
+	if (typeof Coordinates) {
+		alert(JSON.stringify(Coordinates.heading))
+	}
+  }, 3000);
