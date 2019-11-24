@@ -28,6 +28,7 @@ geocode = MQ.geocode().on('success', function(e) {
 });
 
 function success(position) {
+	console.log(JSON.stringify(position));
     const latitude  = position.coords.latitude;
     const longitude = position.coords.longitude;
 
@@ -43,9 +44,3 @@ function success(position) {
   };
 
   navigator.geolocation.getCurrentPosition(success, error);
-
-  setInterval(event => {
-	if (typeof navigator.geolocation.coordinates) {
-		alert(JSON.stringify(navigator.geolocation.coordinates))
-	}
-  }, 3000);
