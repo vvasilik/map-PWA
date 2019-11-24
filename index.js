@@ -28,7 +28,6 @@ geocode = MQ.geocode().on('success', function(e) {
 });
 
 function success(position) {
-	alert(JSON.stringify(position.coords.heading));
     const latitude  = position.coords.latitude;
     const longitude = position.coords.longitude;
 
@@ -39,7 +38,6 @@ function success(position) {
   };
 
   function error(e) {
-	  console.log(e);
     alert("Unable to retrieve your location");
   };
 
