@@ -10,7 +10,7 @@ map.on('click', function(e) {
 	popup.setLatLng(e.latlng).openOn(this);
 	geocode.reverse(e.latlng);
 });
-map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));
+map.addLayer(new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));
 map.addControl( new L.Control.Search({
 	url: 'https://nominatim.openstreetmap.org/search?format=json&q={s}',
 	jsonpParam: 'json_callback',
@@ -37,7 +37,8 @@ function success(position) {
 	const marker = L.marker([latitude, longitude]).addTo(map);
   };
 
-  function error() {
+  function error(e) {
+	  console.log(e);
     alert("Unable to retrieve your location");
   };
 
